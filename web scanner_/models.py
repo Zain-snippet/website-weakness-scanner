@@ -11,6 +11,8 @@ class HttpSnapshot:
     cookies: List["CookieSnapshot"]
     body: str
     is_https: bool
+    
+    
 
 
 @dataclass
@@ -23,10 +25,17 @@ class CookieSnapshot:
 
 
 @dataclass
+class InputSnapshot:
+    name: str
+    type: str
+    value: Optional[str]
+
+
+@dataclass
 class FormSnapshot:
     action: str
     method: str
-    inputs: List[Dict[str, Optional[str]]]
+    inputs: List["InputSnapshot"]
 
 
 @dataclass
